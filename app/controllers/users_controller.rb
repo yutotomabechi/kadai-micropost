@@ -36,11 +36,18 @@ class UsersController < ApplicationController
     @followers = @user.followers.page(params[:page])
     counts(@user)
   end
-
+def favos
+    @user = User.find(params[:id])
+    @favos = @user.favos.page(params[:page])
+    counts(@user)
+    render :favorites
+  end
+  
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+  
   
 end
