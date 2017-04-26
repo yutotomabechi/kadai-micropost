@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     @followers = @user.followers.page(params[:page])
     counts(@user)
   end
-def favos
+  def favos
     @user = User.find(params[:id])
     @favos = @user.favos.page(params[:page])
     counts(@user)
